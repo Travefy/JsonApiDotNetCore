@@ -4,7 +4,7 @@
 ARG VARIANT="7.0"
 FROM mcr.microsoft.com/vscode/devcontainers/dotnet:0-${VARIANT}
 
-RUN curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel 6.0.4xx --install-dir /usr/share/dotnet
+#RUN curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel 6.0.4xx --install-dir /usr/share/dotnet
 
 # RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 # RUN unzip awscliv2.zip
@@ -33,5 +33,5 @@ RUN su vscode -c 'curl https://raw.githubusercontent.com/git/git/master/contrib/
     echo "[ -f ${HOME_DIR}/.git-completion.bash ] && source ${HOME_DIR}/.git-completion.bash" >> ${HOME_DIR}/.bashrc'
     
 USER vscode
-RUN dotnet tool install --global dotnet-ef
+#RUN dotnet tool install --global dotnet-ef
 ENV PATH="/home/vscode/.dotnet/tools:${PATH}"	
