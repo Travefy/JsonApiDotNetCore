@@ -1,7 +1,7 @@
 # See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.245.2/containers/dotnet/.devcontainer/base.Dockerfile
 
 # [Choice] .NET version: 6.0, 3.1, 6.0-bullseye, 3.1-bullseye, 6.0-focal, 3.1-focal
-ARG VARIANT="3.1"
+ARG VARIANT="7.0"
 FROM mcr.microsoft.com/vscode/devcontainers/dotnet:0-${VARIANT}
 
 RUN curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel 6.0.4xx --install-dir /usr/share/dotnet
@@ -33,7 +33,5 @@ RUN su vscode -c 'curl https://raw.githubusercontent.com/git/git/master/contrib/
     echo "[ -f ${HOME_DIR}/.git-completion.bash ] && source ${HOME_DIR}/.git-completion.bash" >> ${HOME_DIR}/.bashrc'
     
 USER vscode
-RUN dotnet tool install Octopus.DotNet.Cli --global 
-RUN dotnet tool install Swashbuckle.AspNetCore.Cli --global --version 6.5.0
 RUN dotnet tool install --global dotnet-ef
 ENV PATH="/home/vscode/.dotnet/tools:${PATH}"	
